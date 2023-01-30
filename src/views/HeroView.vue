@@ -73,8 +73,9 @@
 <script>
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import ProductCard from "@/components/ProductCard.vue";
+import FooterComponent from "@/components/FooterComponent.vue";
 
 export default {
-  components: { NavBarComponent, ProductCard },
+  components: { NavBarComponent, ProductCard, FooterComponent },
 };
 </script>

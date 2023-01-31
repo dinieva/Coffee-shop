@@ -73,9 +73,33 @@
 <script>
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import ProductCard from "@/components/ProductCard.vue";
-/* import FooterComponent from "@/components/FooterComponent.vue"; */
 
 export default {
-  components: { NavBarComponent, ProductCard /* FooterComponent  */ },
+  components: { NavBarComponent, ProductCard },
+
+  data() {
+    return {
+      best: [
+        {
+          id: 0,
+          name: "Solimo Coffee Beans 2kg",
+          image: "coffee-1.jpg",
+          price: 10.73,
+        },
+        {
+          id: 1,
+          name: "Presto Coffee Beans 1kg",
+          image: "coffee-2.jpg",
+          price: 15.99,
+        },
+        {
+          id: 2,
+          name: "AROMISTICO Coffee 1kg",
+          image: "coffee-3.jpg",
+          price: 6.99,
+        },
+      ],
+    };
+  },
 };
 </script>

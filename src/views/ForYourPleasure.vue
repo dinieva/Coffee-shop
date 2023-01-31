@@ -7,7 +7,10 @@
             <nav-bar-component />
           </div>
         </div>
-        <h1 class="title-big">For your pleasure</h1>
+        <header-view-component
+          classItem="title-big"
+          :header="headers[2].header"
+        />
       </div>
     </div>
     <section class="shop">
@@ -48,12 +51,48 @@
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
-              <product-card />
-              <product-card />
-              <product-card />
-              <product-card />
-              <product-card />
-              <product-card />
+              <product-card
+                classItem="shop__item"
+                :name="goods[0].name"
+                :variety="goods[0].variety"
+                :price="goods[0].price"
+                :image="goods[0].image"
+              />
+              <product-card
+                classItem="shop__item"
+                :name="goods[1].name"
+                :variety="goods[1].variety"
+                :price="goods[1].price"
+                :image="goods[1].image"
+              />
+              <product-card
+                classItem="shop__item"
+                :name="goods[2].name"
+                :variety="goods[2].variety"
+                :price="goods[2].price"
+                :image="goods[2].image"
+              />
+              <product-card
+                classItem="shop__item"
+                :name="goods[3].name"
+                :variety="goods[3].variety"
+                :price="goods[3].price"
+                :image="goods[3].image"
+              />
+              <product-card
+                classItem="shop__item"
+                :name="goods[4].name"
+                :variety="goods[4].variety"
+                :price="goods[4].price"
+                :image="goods[4].image"
+              />
+              <product-card
+                classItem="shop__item"
+                :name="goods[5].name"
+                :variety="goods[5].variety"
+                :price="goods[5].price"
+                :image="goods[5].image"
+              />
             </div>
           </div>
         </div>
@@ -65,9 +104,10 @@
 <script>
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import ProductCard from "@/components/ProductCard.vue";
+import HeaderViewComponent from "@/components/HeaderViewComponent.vue";
 
 export default {
-  components: { NavBarComponent, ProductCard },
+  components: { NavBarComponent, ProductCard, HeaderViewComponent },
 
   data() {
     return {
@@ -76,21 +116,21 @@ export default {
           id: 0,
           name: "Solimo Coffee Beans 2kg",
           variety: "Brazil",
-          image: "coffee-1.jpg",
+          image: "good-1.jpg",
           price: 10.73,
         },
         {
           id: 1,
           name: "Presto Coffee Beans 1kg",
           variety: "Brazil",
-          image: "coffee-2.jpg",
+          image: "good-1.jpg",
           price: 15.99,
         },
         {
           id: 2,
           name: "AROMISTICO Coffee 1kg",
           variety: "Brazil",
-          image: "coffee-3.jpg",
+          image: "good-1.jpg",
           price: 6.99,
         },
         {
@@ -98,22 +138,40 @@ export default {
           name: "Solimo Coffee Beans 2kg",
           variety: "Brazil",
           variety: "Brazil",
-          image: "coffee-3.jpg",
+          image: "good-1.jpg",
           price: 10.73,
         },
         {
           id: 4,
           name: "Solimo Coffee Beans 2kg",
           variety: "Brazil",
-          image: "coffee-3.jpg",
+          image: "good-1.jpg",
           price: 10.73,
         },
         {
           id: 5,
           name: "Solimo Coffee Beans 2kg",
           variety: "Brazil",
-          image: "coffee-3.jpg",
+          image: "good-1.jpg",
           price: 10.73,
+        },
+      ],
+      headers: [
+        {
+          id: 0,
+          header: "Everything You Love About Coffee",
+        },
+        {
+          id: 1,
+          header: "Our coffee",
+        },
+        {
+          id: 2,
+          header: "For your pleasure",
+        },
+        {
+          id: 3,
+          header: "Contact us",
         },
       ],
     };

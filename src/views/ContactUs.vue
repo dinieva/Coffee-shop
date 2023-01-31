@@ -7,7 +7,10 @@
             <nav-bar-component />
           </div>
         </div>
-        <h1 class="title-big">Contact us</h1>
+        <header-view-component
+          classItem="title-big"
+          :header="headers[3].header"
+        />
       </div>
     </div>
     <section class="contacts">
@@ -88,8 +91,31 @@
 
 <script>
 import NavBarComponent from "@/components/NavBarComponent.vue";
-
+import HeaderViewComponent from "@/components/HeaderViewComponent.vue";
 export default {
-  components: { NavBarComponent },
+  components: { NavBarComponent, HeaderViewComponent },
+
+  data() {
+    return {
+      headers: [
+        {
+          id: 0,
+          header: "Everything You Love About Coffee",
+        },
+        {
+          id: 1,
+          header: "Our coffee",
+        },
+        {
+          id: 2,
+          header: "For your pleasure",
+        },
+        {
+          id: 3,
+          header: "Contact us",
+        },
+      ],
+    };
+  },
 };
 </script>

@@ -9,7 +9,10 @@
         </div>
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
-            <h1 class="title-big">Everything You Love About Coffee</h1>
+            <header-view-component
+              classItem="title-big"
+              :header="headers[0].header"
+            />
             <img
               class="beanslogo"
               src="@/assets/logo/Beans_logo.svg"
@@ -59,9 +62,24 @@
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <div class="best__wrapper">
-              <product-card />
-              <product-card />
-              <product-card />
+              <product-card
+                classItem="best__item"
+                :name="best[0].name"
+                :price="best[0].price"
+                :image="best[0].image"
+              />
+              <product-card
+                classItem="best__item"
+                :name="best[1].name"
+                :price="best[1].price"
+                :image="best[1].image"
+              />
+              <product-card
+                classItem="best__item"
+                :name="best[2].name"
+                :price="best[2].price"
+                :image="best[2].image"
+              />
             </div>
           </div>
         </div>
@@ -73,9 +91,10 @@
 <script>
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import ProductCard from "@/components/ProductCard.vue";
+import HeaderViewComponent from "@/components/HeaderViewComponent.vue";
 
 export default {
-  components: { NavBarComponent, ProductCard },
+  components: { NavBarComponent, ProductCard, HeaderViewComponent },
 
   data() {
     return {
@@ -97,6 +116,25 @@ export default {
           name: "AROMISTICO Coffee 1kg",
           image: "coffee-3.jpg",
           price: 6.99,
+        },
+      ],
+
+      headers: [
+        {
+          id: 0,
+          header: "Everything You Love About Coffee",
+        },
+        {
+          id: 1,
+          header: "Our coffee",
+        },
+        {
+          id: 2,
+          header: "For your pleasure",
+        },
+        {
+          id: 3,
+          header: "Contact us",
         },
       ],
     };

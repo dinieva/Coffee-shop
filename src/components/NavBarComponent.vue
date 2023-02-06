@@ -8,28 +8,20 @@
         flex-wrap
       "
     >
-      <li class="header__item">
-        <router-link :to="links[0].link"
-          ><img
-            :src="require(`@/assets/logo/${links[0].icon}`)"
-            :alt="links[0].icon"
-        /></router-link>
-      </li>
+      <list-item-component :link="links.header.link" classItem="header__item">
+        <img
+          :src="require(`@/assets/logo/${links.header.icon}`)"
+          :alt="links.header.icon"
+        />
+      </list-item-component>
+
       <list-item-component
+        v-for="link in links.other"
+        :key="link.id"
+        :text="link.text"
+        :link="link.link"
         classItem="header__item"
-        :text="links[1].text"
-        :link="links[1].link"
-      />
-      <list-item-component
-        classItem="header__item"
-        :text="links[2].text"
-        :link="links[2].link"
-      />
-      <list-item-component
-        classItem="header__item"
-        :text="links[3].text"
-        :link="links[3].link"
-      />
+      ></list-item-component>
     </ul>
   </header>
 </template>
@@ -42,28 +34,30 @@ export default {
 
   data() {
     return {
-      links: [
-        {
+      links: {
+        header: {
           id: 0,
           link: "/",
           icon: "Logo.svg",
         },
-        {
-          id: 1,
-          text: "Our coffee",
-          link: "/our-coffee",
-        },
-        {
-          id: 2,
-          text: "For your pleasure",
-          link: "/for-your-pleasure",
-        },
-        {
-          id: 3,
-          text: "Contact us",
-          link: "/contact-us",
-        },
-      ],
+        other: [
+          {
+            id: 1,
+            text: "Our coffee",
+            link: "/our-coffee",
+          },
+          {
+            id: 2,
+            text: "For your pleasure",
+            link: "/for-your-pleasure",
+          },
+          {
+            id: 3,
+            text: "Contact us",
+            link: "/contact-us",
+          },
+        ],
+      },
     };
   },
 };

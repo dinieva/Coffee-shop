@@ -52,47 +52,14 @@
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
               <product-card
+                v-for="card in goods"
+                :key="card.id"
+                :name="card.name"
+                :variety="card.variety"
+                :price="card.price"
+                :image="card.image"
                 classItem="shop__item"
-                :name="goods[0].name"
-                :variety="goods[0].variety"
-                :price="goods[0].price"
-                :image="goods[0].image"
-              />
-              <product-card
-                classItem="shop__item"
-                :name="goods[1].name"
-                :variety="goods[1].variety"
-                :price="goods[1].price"
-                :image="goods[1].image"
-              />
-              <product-card
-                classItem="shop__item"
-                :name="goods[2].name"
-                :variety="goods[2].variety"
-                :price="goods[2].price"
-                :image="goods[2].image"
-              />
-              <product-card
-                classItem="shop__item"
-                :name="goods[3].name"
-                :variety="goods[3].variety"
-                :price="goods[3].price"
-                :image="goods[3].image"
-              />
-              <product-card
-                classItem="shop__item"
-                :name="goods[4].name"
-                :variety="goods[4].variety"
-                :price="goods[4].price"
-                :image="goods[4].image"
-              />
-              <product-card
-                classItem="shop__item"
-                :name="goods[5].name"
-                :variety="goods[5].variety"
-                :price="goods[5].price"
-                :image="goods[5].image"
-              />
+              ></product-card>
             </div>
           </div>
         </div>

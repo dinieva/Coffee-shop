@@ -70,10 +70,8 @@
               <product-card
                 v-for="card in bests"
                 :key="card.id"
-                :name="card.name"
-                :price="card.price"
-                :image="card.image"
                 classItem="best__item"
+                :card="card"
               ></product-card>
             </div>
           </div>

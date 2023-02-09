@@ -54,11 +54,10 @@
               <product-card
                 v-for="card in goods"
                 :key="card.id"
-                :name="card.name"
                 :variety="card.variety"
-                :price="card.price"
-                :image="card.image"
                 classItem="shop__item"
+                :card="card"
+                @onNavigate="navigate"
               ></product-card>
             </div>
           </div>
@@ -72,7 +71,7 @@
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import ProductCard from "@/components/ProductCard.vue";
 import HeaderViewComponent from "@/components/HeaderViewComponent.vue";
-
+import { navigate } from "../mixins/navigate";
 export default {
   components: { NavBarComponent, ProductCard, HeaderViewComponent },
   computed: {
@@ -80,8 +79,10 @@ export default {
       return this.$store.getters["getGoods"];
     },
   },
+  mixins: [navigate],
   data() {
     return {
+      name: "goods",
       headers: [
         {
           id: 0,

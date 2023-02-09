@@ -68,7 +68,7 @@
           <div class="col-lg-10 offset-lg-1">
             <div class="best__wrapper">
               <product-card
-                v-for="card in best"
+                v-for="card in bests"
                 :key="card.id"
                 :name="card.name"
                 :price="card.price"
@@ -92,30 +92,13 @@ import { scrollIntoView } from "seamless-scroll-polyfill"; //для макбук
 
 export default {
   components: { NavBarComponent, ProductCard, HeaderViewComponent },
-
+  computed: {
+    bests() {
+      return this.$store.getters["getBests"];
+    },
+  },
   data() {
     return {
-      best: [
-        {
-          id: 0,
-          name: "Solimo Coffee Beans 2kg",
-          image: "coffee-1.jpg",
-          price: 10.73,
-        },
-        {
-          id: 1,
-          name: "Presto Coffee Beans 1kg",
-          image: "coffee-2.jpg",
-          price: 15.99,
-        },
-        {
-          id: 2,
-          name: "AROMISTICO Coffee 1kg",
-          image: "coffee-3.jpg",
-          price: 6.99,
-        },
-      ],
-
       headers: [
         {
           id: 0,

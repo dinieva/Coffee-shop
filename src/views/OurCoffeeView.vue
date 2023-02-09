@@ -95,54 +95,13 @@ import HeaderViewComponent from "@/components/HeaderViewComponent.vue";
 
 export default {
   components: { NavBarComponent, ProductCard, HeaderViewComponent },
-
+  computed: {
+    coffee() {
+      return this.$store.getters["getCoffee"];
+    },
+  },
   data() {
     return {
-      coffee: [
-        {
-          id: 0,
-          name: "Solimo Coffee Beans 2kg",
-          variety: "Brazil",
-          image: "coffee-3.jpg",
-          price: 10.73,
-        },
-        {
-          id: 1,
-          name: "Presto Coffee Beans 1kg",
-          variety: "Brazil",
-          image: "coffee-3.jpg",
-          price: 15.99,
-        },
-        {
-          id: 2,
-          name: "AROMISTICO Coffee 1kg",
-          variety: "Brazil",
-          image: "coffee-3.jpg",
-          price: 6.99,
-        },
-        {
-          id: 3,
-          name: "Solimo Coffee Beans 2kg",
-          variety: "Brazil",
-          variety: "Brazil",
-          image: "coffee-3.jpg",
-          price: 10.73,
-        },
-        {
-          id: 4,
-          name: "Solimo Coffee Beans 2kg",
-          variety: "Brazil",
-          image: "coffee-3.jpg",
-          price: 10.73,
-        },
-        {
-          id: 5,
-          name: "Solimo Coffee Beans 2kg",
-          variety: "Brazil",
-          image: "coffee-3.jpg",
-          price: 10.73,
-        },
-      ],
       headers: [
         {
           id: 0,

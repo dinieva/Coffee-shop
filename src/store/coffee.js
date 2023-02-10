@@ -27,7 +27,6 @@ const coffee = {
                 id: 3,
                 name: "Solimo Coffee Beans 2kg",
                 variety: "Brazil",
-                variety: "Brazil",
                 image: "coffee-3.jpg",
                 price: 10.73,
             },
@@ -53,7 +52,8 @@ const coffee = {
         getCoffee(state) {
             return state.coffee
         },
-        getProductById(state) {
+        //getProductById(state) {
+        getCoffeeById(state) {
             return (id) => {
                 return state.coffee.find((card) => card.id === +id)
             }

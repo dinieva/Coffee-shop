@@ -80,7 +80,6 @@
                 :card="card"
                 @onNavigate="navigate"
               ></product-card>
-              <!-- /our-coffee/item -->
             </div>
           </div>
         </div>

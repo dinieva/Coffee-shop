@@ -1,72 +1,50 @@
 const coffee = {
     state: {
-
-        coffee: [
-            {
-                id: 0,
-                name: "Solimo Coffee Beans 2kg",
-                variety: "Brazil",
-                image: "coffee-3.jpg",
-                price: 10.73,
-            },
-            {
-                id: 1,
-                name: "Presto Coffee Beans 1kg",
-                variety: "Brazil",
-                image: "coffee-3.jpg",
-                price: 15.99,
-            },
-            {
-                id: 2,
-                name: "AROMISTICO Coffee 1kg",
-                variety: "Brazil",
-                image: "coffee-3.jpg",
-                price: 6.99,
-            },
-            {
-                id: 3,
-                name: "Solimo Coffee Beans 2kg",
-                variety: "Brazil",
-                image: "coffee-3.jpg",
-                price: 10.73,
-            },
-            {
-                id: 4,
-                name: "Solimo Coffee Beans 2kg",
-                variety: "Brazil",
-                image: "coffee-3.jpg",
-                price: 10.73,
-            },
-            {
-                id: 5,
-                name: "Solimo Coffee Beans 2kg",
-                variety: "Brazil",
-                image: "coffee-3.jpg",
-                price: 10.73,
-            },
-        ],
-
+        coffee: [],
+        searchValue: '',
+        sortValue: '',
     },
     mutations: {
         setCoffeeData(state, data) {
             state.coffee = data
-        }
+        },
+        setSearchValue(state, value) {
+            state.searchValue = value
+        },
+        setSortValue(state, value) {
+            state.sortValue = value
+        },
     },
     actions: {
         setCoffeeData({ commit }, data) {
             commit('setCoffeeData', data)
-        }
+        },
+        setSearchValue({ commit }, value) {
+            commit('setSearchValue', value)
+        },
+        setSortValue({ commit }, value) {
+            commit('setSortValue', value)
+        },
     },
     getters: {
         getCoffee(state) {
-            return state.coffee
+            return state.coffee.filter(item => item.name
+                .toLowerCase()
+                .includes(state.searchValue.toLowerCase())
+            ).filter(item => item.country
+                .toLowerCase()
+                .includes(state.sortValue.toLowerCase())
+            )
         },
         //getProductById(state) {
         getCoffeeById(state) {
             return (id) => {
                 return state.coffee.find((card) => card.id === +id)
             }
-        }
+        },
+        getSearchValue(state) {
+            return state.searchValue
+        },
     }
 }
 

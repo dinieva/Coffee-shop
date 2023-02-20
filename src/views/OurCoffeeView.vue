@@ -56,7 +56,7 @@
                 type="text"
                 placeholder="start typing here..."
                 class="shop__search-input"
-                v-model="searchValue"
+                @input="onSearch($event)"
               />
             </form>
           </div>
@@ -148,8 +148,15 @@ export default {
       });
   },
   methods: {
+    onSearch(event) {
+      this.onSort(event.target.value);
+    },
     onSort(value) {
-      this.$store.dispatch("setSortValue", value);
+      fetch(`http://localhost:3000/coffee?q=${value}`)
+        .then((res) => res.json())
+        .then((data) => {
+          this.$store.dispatch("setCoffeeData", data);
+        });
     },
   },
 };
